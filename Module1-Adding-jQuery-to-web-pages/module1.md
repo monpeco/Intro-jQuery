@@ -58,3 +58,39 @@ And finally, if you wish to find an item by its ID, you use the same CSS syntax,
 $('#demo') // selects all elements with an id of demo
 ```
 
+---
+
+### Attribute based selectors
+The HTML specification defines many attributes, such as class and style as well as allowing developers to add their own attributes. By using CSS selector syntax, you can locate items based on both custom and predefined attributes.
+
+To find elements in which an attribute is set to a specific value, you use the equality syntax. Note that the value you wish to compare must be in quotes, which means you need to use both single and double quotes to create the appropriate string. While the actual quotes you use are up to you, I ,and most JavaScript developers I've worked with, use single quotes for normal strings in JavaScript, and then use double quotes when we need to indicate a quoted value inside of a string.
+
+```javascript
+// selects **all** elements with an attribute matching the specified value
+$('[demo-attribute="demo-value"]') 
+
+// selects all **h1** elements with an attribute matching the specified value
+$('h1[demo-attribute="demo-value"]')
+```
+
+#### Locating items by partial attribute values
+Many frameworks, such as Bootstrap, make their magic happen by having developers add certain classes or other attributes to their HTML. Often, the values you'll use for classes or attributes have consistent patterns or prefixes. jQuery allows you to select items by searching inside of attribute values for desired sub-strings.
+
+If you wish to find all elements where the value starts with a string, use the ^= operator.
+
+```javascript
+$('[class^="col"]')
+```
+
+If you wish to find all elements where the value contains a string, use the *= operator.
+
+```javascript
+$('[class*="md"]')
+```
+
+There are several more operators available. See the [documentation](https://api.jquery.com/category/selectors/attribute-selectors/) jQuery.com for a full list.
+
+
+---
+
+### Positional selectors

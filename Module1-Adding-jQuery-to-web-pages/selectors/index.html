@@ -7,6 +7,10 @@
         <h1>Hello world!!</h1>
         <h1 class="my-class">Hello world!!</h1>
         <h1 id="my-id">Hello world!!</h1>
+        <h1 custom="banner">Hello world!!</h1>
+        <h2 custom="banner">Hello world!!</h1>
+        <h1 class="footer">Hello world!!</h1>
+        <h1 class="col-md-4">Hello world!!</h1>
 
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -15,6 +19,12 @@
                 $('h1').text('Hello h1');
                 $('h1.my-class').text('Hello h1 with class');
                 $('h1#my-id').text('Hello h1 with id!!');
+
+                // Attribute based selectors
+                $('[custom="banner"]').text('Found by equality');
+                $('h2[custom="banner"]').text('Found by equality for a specific element');
+                $('[class^="foo"]').text('Found by starts with');
+                $('[class*="md"]').text('Found by contains');
             });
         </script>
     </body>
