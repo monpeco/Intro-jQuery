@@ -34,3 +34,27 @@ $(function() {
 Both of the code blocks above are semantically identical.
 
 
+---
+
+### Common CSS selectors
+
+#### Basic CSS selectors
+The most basic CSS selector is to simply use the name of the element you're looking for. Want all h1 elements? Simply use h1 as your selector.
+
+```javascript
+$('h1') // selects all h1 elements
+```
+
+You will notice, just as we saw with document.ready, we pass the appropriate text into the jQuery constructor to indicate the selector we wish to use. Because of the flexibility of JavaScript, and how jQuery was designed, this pattern stays rather consistent whenever you're looking to get started using jQuery in a page - simply pass the appropriate text, item, or other component, into the constructor, and jQuery will handle it from there.
+
+Bringing it back to CSS selectors, let's take a look at using classes. If you need to find all items that use a particular class, you can simply use the name of the class with a dot in front of it, just as you would if you were creating a CSS stylesheet.
+
+```javascript
+$('.class-name') // selects all elements with a class of class-name
+```
+And finally, if you wish to find an item by its ID, you use the same CSS syntax, prepending the ID name with a hash.
+
+```javascript
+$('#demo') // selects all elements with an id of demo
+```
+
