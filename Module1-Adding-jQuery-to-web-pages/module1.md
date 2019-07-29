@@ -94,3 +94,47 @@ There are several more operators available. See the [documentation](https://api.
 ---
 
 ### Positional selectors
+
+#### Parent/child relationships
+The simplest location selector is one for parent/child. The > between selectors indicates the parent/child relationship. With this relationship, the second item listed must be a direct child of the first item, with no other elements between the two.
+
+Consider the following script:
+
+```javascript
+// Selects all a elements that are direct descendants nav element
+$('nav > a')
+```
+
+In the following HTML, the first link would be selected, but not the second. This is because the first link is a direct child, but the second is inside of a div element.
+
+```html
+<nav>
+	<a href="#">(First) This will be selected</a>
+	<div>
+		<a href="#">(Second) This will **not** be selected</a>
+	</div>
+</nav>
+```
+
+#### Descendants
+To select elements where the targeted element is a descendant of another element, regardless of how many levels exist between the two, simply put a space between the two selectors.
+
+```javascript
+// Selects all a elements that are descendants nav element
+// The elements can appear anywhere inside of the element listed first
+$('nav a')
+```
+While the difference in syntax is subtle, it makes a big difference in regards to the items selected. Using the same HTML from above, both a elements would be selected by using the syntax $('nav a).
+
+```html
+<nav>
+	<a href="#">(First) This will be selected</a>
+	<div>
+		<a href="#">(Second) This will be selected</a>
+	</div>
+</nav>
+```
+
+---
+
+### Parent child relationships

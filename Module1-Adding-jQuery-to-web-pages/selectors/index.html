@@ -12,6 +12,13 @@
         <h1 class="footer">Hello world!!</h1>
         <h1 class="col-md-4">Hello world!!</h1>
 
+        <header>
+            <h1>This h1 is outside the div</h1>
+            <div>
+                <h1>This h1 is inside of that div</h1>
+            </div>
+        </header>
+
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
@@ -25,6 +32,10 @@
                 $('h2[custom="banner"]').text('Found by equality for a specific element');
                 $('[class^="foo"]').text('Found by starts with');
                 $('[class*="md"]').text('Found by contains');
+
+                // Position selectors
+                $('header h1').text('descendant');
+                $('header > h1').text('Parent / child');
             });
         </script>
     </body>
