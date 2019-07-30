@@ -17,6 +17,7 @@
             src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
             $(function(){
+               $('#target').find('*').attr('style', 'color:green'); // always needs a selector
                $('#target').children().attr('style', 'color:red');
             });
         </script>
