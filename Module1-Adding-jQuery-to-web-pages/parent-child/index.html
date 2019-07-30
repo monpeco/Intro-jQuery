@@ -9,7 +9,7 @@
             <div class="parent" style="color:black">
             -Parent
             <div class="child" style="color:black">- First Child</div>
-            <div class="child" style="color:black">- Second Child</div>
+            <div id="kid" class="child" style="color:black">- Second Child</div>
             </div>
         </div>
 
@@ -19,6 +19,7 @@
             $(function(){
                $('#target').find('*').attr('style', 'color:green'); // always needs a selector
                $('#target').children().attr('style', 'color:red');
+               $('#kid').parent().attr('style', 'color:blue');
             });
         </script>
     </body>
