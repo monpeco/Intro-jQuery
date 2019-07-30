@@ -138,3 +138,35 @@ While the difference in syntax is subtle, it makes a big difference in regards t
 ---
 
 ### Parent child relationships
+
+jQuery offers two methods that allow you to locate children or descendents of the currently selected element.
+
+The first is children, which will allow you to select, or search through, all direct descendents of the currently selected item. Keep in mind that children will only work with direct children of the current element; anything further down the hierarchy will not be considered when using children.
+
+children also accepts an optional CSS selector. This allows you to filter children using the same syntax we covered earlier. Consider a nav element with multiple a elements as children. You may want to select all a elements that have an href attribute starting with http://, which would indicate the link refers to an external site. You could select just those a elements by using the following syntax:
+
+
+currentElement.children('a[href^="http://"]');
+As mentioned earlier, children only applies to direct descendents. If you need to look throughout the entire hierarchy below the currently selected element, you use the find method. find works just like children, with the only difference being that find will look beyond direct children of the current element. Just like children, find also accepts a selector for filtering.
+
+Consider the following HTML.
+
+```html
+<nav id="navigation">
+    <ul>
+        <li><a href="http://www.microsoft.com">Microsoft</a></li>
+        <li><a href="http://www.adventure-works.com">AdventureWorks</a></li>
+        <li><a href="register">Register</a></li>
+    </ul>
+</nav>
+```
+If we needed to select all a elements under the nav element we couldn't use children. This is where find comes into play. And, just like before, if we only wanted the a elements that had an href that started with http://, we could add in the CSS selector to filter.
+
+```javascript
+// select the nav element by its ID
+var navigation = $('#navigation');
+
+// select all a elements with an href that starts with http://
+navigation.find('a[href^="http://"]')
+```
+
