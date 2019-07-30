@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Hello h1</title>
+    </head>
+
+    <body>
+        <div id="target" style="color:black">
+            Grandparent
+            <div class="parent" style="color:black">
+            -Parent
+            <div class="child" style="color:black">- First Child</div>
+            <div class="child" style="color:black">- Second Child</div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $(function(){
+               $('#target').children().attr('style', 'color:red');
+            });
+        </script>
+    </body>
+</html>
+    
