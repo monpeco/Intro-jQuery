@@ -12,8 +12,8 @@
         <div style="color:black">Fifth</div>
         <div style="color:black">Sixth</div>
         <div style="color:black">Seventh</div>
-        <div style="color:black">First</div>
-        <div style="color:black">First</div>
+        <div style="color:black">Eighth</div>
+        <div class="last" style="color:black">Nineth</div>
 
 
         <script
@@ -28,6 +28,17 @@
 
             //update all previous elements until .strop
             $('#target').prevUntil('.stop').attr('style','color:blue');
+            
+            //update all next elements
+            $('#target').nextAll().attr('style','color:blue');
+
+            //update all next elements until .strop
+            $('#target').nextUntil('.last').attr('style','color:yellow');
+
+            // update next element
+            $('#target').next().attr('style', 'color:orange');
+
+
             });
             
             
