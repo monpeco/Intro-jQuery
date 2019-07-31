@@ -170,3 +170,20 @@ var navigation = $('#navigation');
 navigation.find('a[href^="http://"]')
 ```
 
+---
+
+### Siblings
+
+Many sections of an HTML page have a consistent structure. For example, most forms will have a label, followed by an input element, followed by a placeholder for an error message.
+
+```html
+<div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" />
+    <div id="name-error"></div>
+</div>
+```
+
+Imagine a bit of jQuery code where you had a reference to the input element, and you were performing a bit of validation. You would want to display any error message in the div element immediately following the input tag. While you could explicitly get a reference to the div element by its ID, that code wouldn't be reusable.
+
+If your site maintained that structure of label, input, div, you could create generic event handlers, and update the error message simply by using that consistent structure to your advantage.
