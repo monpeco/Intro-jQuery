@@ -187,3 +187,49 @@ Many sections of an HTML page have a consistent structure. For example, most for
 Imagine a bit of jQuery code where you had a reference to the input element, and you were performing a bit of validation. You would want to display any error message in the div element immediately following the input tag. While you could explicitly get a reference to the div element by its ID, that code wouldn't be reusable.
 
 If your site maintained that structure of label, input, div, you could create generic event handlers, and update the error message simply by using that consistent structure to your advantage.
+
+#### prev and next
+Image a bit of jQuery code to grab the input element.
+
+```javascript
+var currentInput = $('name');
+```
+To move to the prior element, jQuery provides the prev method. You can use prev() to access the prior element in the hierarchy (the label in the example). If you wanted the div element to update the error message, which follows the input element, you would use next()
+
+```javascript
+// text allows you to modify the text in an element
+curentInput.next().text('error message');
+```
+As with most methods used to select items in jQuery, both prev and next support CSS selectors.
+
+#### prevAll and nextAll
+prev and next only look at the item immediately prior or after, respectively. prevAll and nextAll will select all siblings prior or after the element. Both methods also accept a CSS selector to limit the items.
+
+Imagine a form with a checkbox, where upon selection you need to enable the two textboxes and labels immediately following it.
+
+```html
+<label for="provide-address">Provide address?</label>
+<input type="checkbox" id="provide-address" />
+
+<label for="street">Street:</label>
+<input type="text" id="street" disabled="true" />
+
+<label for="country">Country:</label>
+<input type="text" id="country" disabled="true" />
+```
+
+You could enable the textboxes by using the following jQuery:
+
+```javascript
+// The attr method is used to set (or read) an attribute
+// The first parameter is the name of the attribute, the second is the value to set
+
+// Since we only need input elements, we'll use the name of the tag as the filter
+$('#provide-address').nextAll('input').attr('disabled', 'true');
+```
+
+Disabled attribute One interesting note about the disabled attribute is that it's one of the attributes that, according to the HTML specification, does not require a key/value pair. As a result, simply using <input disabled type="text" /> would disable the textbox. However, this wouldn't be valid XML syntax. As a result, I personally prefer to use either disabled="true" or disabled="disabled" to ensure a key/value pair and well-formed XML.
+
+#### prevUntil and nextUntil
+Finally, prevUntil and nextUntil select all prior or following elements up to, but not including the element that matches the selector.
+
