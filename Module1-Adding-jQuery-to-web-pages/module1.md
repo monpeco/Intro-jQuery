@@ -233,3 +233,15 @@ Disabled attribute One interesting note about the disabled attribute is that it'
 #### prevUntil and nextUntil
 Finally, prevUntil and nextUntil select all prior or following elements up to, but not including the element that matches the selector.
 
+---
+
+### Position methods
+
+#### Finding the index of an item
+If you have a reference to an object, but need to know where it sits in a collection of items, you can use the index method. The index method will return the zero based (ordinal) location of the item, or -1 if the item isn't found.
+
+```javascript
+var currentElement = $('some selector');
+var parent = $('some selector');
+var index = parent.children().index(currentElement);
+```
