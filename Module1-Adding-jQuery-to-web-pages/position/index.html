@@ -19,17 +19,18 @@
 
         <div id="display"></div>
 
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
             $(function(){
                 var element = $('#target');
                 var container = $('#container');
                 var index = container.children().index(element);
                 $('#display').text('The index is: ' + index);
+
+                var foundElement = container.children().get(index)
+                var jQueryObject = $(foundElement)
+                jQueryObject.attr('style','color:green');
             });
-            
-            
         </script>
     </body>
 </html>
