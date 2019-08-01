@@ -245,3 +245,38 @@ var currentElement = $('some selector');
 var parent = $('some selector');
 var index = parent.children().index(currentElement);
 ```
+
+#### Finding an item by its position
+If you know the zero based (ordinal) location of an item in a collection, you can obtain a reference to that item by using the get method.
+
+```javascript
+var parent = $('some selector');
+var element = parent.children().get(index);
+```
+
+#### get return type
+
+One important note about get is it returns a JavaScript DOM object, not a jQuery object. This means the various jQuery methods, such as attr and text are not available. In order to call jQuery methods on the object, you must convert it to a jQuery object. Fortunately, this is just as easy as passing the object into the jQuery constructor. The above code would become:
+
+```javascript
+var parent = $('some selector');
+var element = parent.children().get(index);
+var jQueryObject = $(element);
+```
+
+Or, you could distill it down to two lines
+
+```javascript
+var parent = $('some selector');
+var jQueryObject = $(parent.children().get(index));
+```
+
+Or, I suppose, down to one line.
+
+```javascript
+var jQueryObject = $($('some selector').children().get(index));
+```
+
+It's all just a matter of personal preference.
+
+---
